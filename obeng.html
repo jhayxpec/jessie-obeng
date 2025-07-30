@@ -539,6 +539,19 @@
 
         // Get form values
         const name = document.getElementById("name").value;
+        if (!name) {
+          alert("Please enter your name.");
+          return;
+        }else if (name.length < 3) {
+          alert("Name must be at least 3 characters long.");
+          return;
+        }else if (name.length > 50) {
+          alert("Name must not exceed 50 characters.");
+          return;
+        }else if (!/^[a-zA-Z\s]+$/.test(name)) {
+          alert("Name can only contain letters and spaces.");
+          return;
+        }
         const email = document.getElementById("email").value;
         const subject = document.getElementById("subject").value;
         const message = document.getElementById("message").value;
