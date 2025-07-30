@@ -433,7 +433,7 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <p>© 2023 Jessie Obeng Ankrah. All rights reserved.</p>
+          <p>© 2025 Jessie Obeng Ankrah. All rights reserved.</p>
           <p class="copyright">
             Designed and developed with passion for technology and innovation.
           </p>
@@ -553,8 +553,49 @@
           return;
         }
         const email = document.getElementById("email").value;
+        if (!email) {
+          alert("Please enter your email.");
+          return;
+        }else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+        else if (email.length > 100) {
+          alert("Email must not exceed 100 characters.");
+          return;
+        }
+        else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+          alert("Email can only contain letters, numbers, and special characters.");
+          return;
+        }
         const subject = document.getElementById("subject").value;
+        if (!subject) {
+          alert("Please enter a subject.");
+          return;
+        }else if (subject.length < 3) {
+          alert("Subject must be at least 3 characters long.");
+          return;
+        }else if (subject.length > 100) {
+          alert("Subject must not exceed 100 characters.");
+          return;
+        }else if (!/^[a-zA-Z0-9\s]+$/.test(subject)) {
+          alert("Subject can only contain letters, numbers, and spaces.");
+          return;
+        }
         const message = document.getElementById("message").value;
+        if (!message) {
+          alert("Please enter a message.");
+          return;
+        }else if (message.length < 10) {
+          alert("Message must be at least 10 characters long.");
+          return;
+        }else if (message.length > 500) {
+          alert("Message must not exceed 500 characters.");
+          return;
+        }else if (!/^[a-zA-Z0-9\s.,!?'"-()]+$/.test(message)) {
+          alert("Message can only contain letters, numbers, and basic punctuation.");
+          return;
+        }
 
         // In a real application, you would send this data to a server
         alert(
